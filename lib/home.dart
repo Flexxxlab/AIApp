@@ -15,7 +15,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
   final TextEditingController _textFieldController = TextEditingController();
   String _response = ""; // To hold the current response
   bool _isLoading = false; // To show loading indicator while fetching response
-
+  
   Future<void> _askQuestion(String question) async {
     if (loadMockData) {
       setState(() {
@@ -82,7 +82,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("EduMento"),
+        title: const Text("EduMentor"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -94,18 +94,19 @@ class _AIChatScreenState extends State<AIChatScreen> {
             TextField(
               controller: _textFieldController,
               cursorColor: Theme.of(context).primaryColor,
+              style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
                 ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Theme.of(context).primaryColor),
+                enabledBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.white),
                 ),
                 labelText: 'Subjects you are interested in?',
-                labelStyle: const TextStyle(color: Colors.white),
+                labelStyle: const TextStyle(color: Color.fromARGB(255, 211, 204, 204)),
                 suffixIcon: _textFieldController.text.isNotEmpty
                     ? IconButton(
                         icon: const Icon(Icons.clear),
@@ -138,7 +139,9 @@ class _AIChatScreenState extends State<AIChatScreen> {
             const SizedBox(height: 16),
 
             // Show loading indicator while fetching response
-            if (_isLoading) const Center(child: CircularProgressIndicator()),
+            if (_isLoading) const Center(child: CircularProgressIndicator(color: Colors.white)),
+            
+            const SizedBox(height: 16),
 
             // Display the response
             if (_response.isNotEmpty)
