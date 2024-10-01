@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:http/http.dart' as http;
 import 'package:myapp/mock_data.dart';
 
@@ -15,7 +16,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
   final TextEditingController _textFieldController = TextEditingController();
   String _response = ""; // To hold the current response
   bool _isLoading = false; // To show loading indicator while fetching response
-  
+
   Future<void> _askQuestion(String question) async {
     if (loadMockData) {
       setState(() {
@@ -23,7 +24,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
       });
       await Future.delayed(const Duration(seconds: 2));
       setState(() {
-        _response = mockResponce;
+        _response = mockdata;
       });
       setState(() {
         _isLoading = false;
@@ -93,7 +94,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
             // Input text field
             TextField(
               controller: _textFieldController,
-              cursorColor: Theme.of(context).primaryColor,
+              cursorColor: Colors.white,
               style: const TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 border: const OutlineInputBorder(
@@ -106,7 +107,8 @@ class _AIChatScreenState extends State<AIChatScreen> {
                   borderSide: BorderSide(color: Colors.white),
                 ),
                 labelText: 'Subjects you are interested in?',
-                labelStyle: const TextStyle(color: Color.fromARGB(255, 211, 204, 204)),
+                labelStyle:
+                    const TextStyle(color: Color.fromARGB(255, 211, 204, 204)),
                 suffixIcon: _textFieldController.text.isNotEmpty
                     ? IconButton(
                         icon: const Icon(Icons.clear),
@@ -139,33 +141,25 @@ class _AIChatScreenState extends State<AIChatScreen> {
             const SizedBox(height: 16),
 
             // Show loading indicator while fetching response
-            if (_isLoading) const Center(child: CircularProgressIndicator(color: Colors.white)),
-            
+            if (_isLoading)
+              const Center(
+                  child: CircularProgressIndicator(color: Colors.white)),
+
             const SizedBox(height: 16),
 
             // Display the response
             if (_response.isNotEmpty)
               Expanded(
                 child: Container(
-                  width: double.infinity, // Ensure full width
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.blue),
-                    borderRadius: BorderRadius.circular(3),
-                  ),
-                  child: SingleChildScrollView(
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: _response,
-                            style: const TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-                          ),
-                        ],
-                      ),
+                    width: double.infinity, // Ensure full width
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.blue),
+                      borderRadius: BorderRadius.circular(3),
                     ),
-                  ),
-                ),
+                    child: Markdown(
+                      data: _response,
+                    )),
               ),
           ],
         ),

@@ -1,7 +1,7 @@
 const loadMockData = true;
 
-const mockResponce = '''
-      1. *Explore Different Mediums*: 
+const String mockdata = '''
+1. *Explore Different Mediums*: 
          - Experiment with drawing, painting, digital art, sculpture, and photography. Discover what medium resonates most with you.
       
       2. *Art History*:
@@ -25,11 +25,5 @@ const mockResponce = '''
       8. *Keep Creating*:
          - Dedicate time to create art regularly. Set personal projects or challenges to encourage experimentation and growth.
       
-      ---
       
-      ### Additional Tips
-      
-      - *Time Management*: Balance your studies in math and art by creating a schedule that allocates specific times for each subject.
-      - *Cultural Context*: Given that you are from the UAE, incorporate local culture and themes into your art projects. This can provide a unique perspective and elevate your work.
-      
-      By following these instructions, you will be well-equipped to excel in both mathematics and the arts in your higher education pursuits.''';
+''';
