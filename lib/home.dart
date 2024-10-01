@@ -1,6 +1,9 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1945382822.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:4267195751.
 import 'dart:convert';
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:http/http.dart' as http;
 import 'package:myapp/mock_data.dart';
@@ -133,6 +136,8 @@ class _AIChatScreenState extends State<AIChatScreen> {
                 onPressed: () {
                   if (_textFieldController.text.isNotEmpty) {
                     _askQuestion(_textFieldController.text);
+                    SystemChannels.textInput.invokeMethod('TextInput.hide');
+                    // Dismiss the keyboard
                   }
                 },
                 child: const Text("Get Guidance"),
