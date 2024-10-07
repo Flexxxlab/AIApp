@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "642418573183",
+    "project_id": "aero-4be10",
+    "storage_bucket": "aero-4be10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642418573183:android:a485a42de5b2580dfba44a",
+        "android_client_info": {
+          "package_name": "com.faraaz.aero"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAODUw7ztu619-p5V21yuhnhfRGyW46ayI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

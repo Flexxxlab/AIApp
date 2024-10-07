@@ -86,7 +86,7 @@ class _AIChatScreenState extends State<AIChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("EduMentor"),
+        title: const Text("AeroEdu AI"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
