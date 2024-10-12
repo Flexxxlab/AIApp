@@ -86,6 +86,12 @@ class _AIChatScreenState extends State<AIChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            'assets/images/img.png',
+          ),
+        ),
         title: const Text("AeroEdu AI"),
       ),
       body: Padding(
